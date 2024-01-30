@@ -36,6 +36,9 @@ to start we could make a basic webpage through html with:
 
 an app that calls two APIs, one for films, one for recipies. Recommends food and films based on search criteria with a user friendly UI and intuitive UX.
 
+https://rapidapi.com/spoonacular/api/recipe-food-nutrition/
+https://rapidapi.com/unogs/api/unogs/
+
 All -
 
     make a personal branch
@@ -78,6 +81,8 @@ Gaston -
         structure of output
         what autogen JS code will be done to apply to html
         Coordinate with other API dev on standard structure Output to help with CSS structure
+        local storage use for saved buttons
+        local storage used for display most recent on page refresh
 
 Nana -
 
