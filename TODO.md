@@ -34,10 +34,10 @@ to start we could make a basic webpage through html with:
 
 ## final decision
 
-an app that calls two APIs, one for films, one for recipies. Recommends food and films based on search criteria with a user friendly UI and intuitive UX.
+an app that calls two APIs, one for films, one for recipies. Recommends food and films based on search criteria with a user friendly UI and intuitive UX for people that are indecisive on what to cook and watch.
 
-https://rapidapi.com/spoonacular/api/recipe-food-nutrition/
-https://rapidapi.com/unogs/api/unogs/
+https://rapidapi.com/apidojo/api/tasty
+https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability/
 
 All -
 
@@ -58,6 +58,8 @@ Harry -
 
     debugging and support with CSS and APIs/JS:
         familiarise self with both APIs and code structures
+        add general JS as necessary
+        flutter between CSS and API js towards end of the project to add functionality
 
 
 Amr -
@@ -67,6 +69,8 @@ Amr -
         mock up including color schemes
         keeping a list of classes and ID's generated in API team (with what does what and is what element, with ideas of what to apply where)
         applying CSS to make a clean and polished end product and maintaining order to the page as a whole
+
+        move towards JS and API work to implement extra functionality after initial API phase complete
 
 Danijel -
 
@@ -83,6 +87,8 @@ Gaston -
         Coordinate with other API dev on standard structure Output to help with CSS structure
         local storage use for saved buttons
         local storage used for display most recent on page refresh
+
+        move towards CSS and visual aspect after team swap towards end
 
 Nana -
 
