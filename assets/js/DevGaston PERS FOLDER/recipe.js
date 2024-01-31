@@ -1,4 +1,5 @@
-console.log("Log inititalised");
+console.log("Log inititalised"); // added new comment
+// new comment -----
 
 // Add your own API key between the ""
 var APIKey = "e248b13b3adb6046dcac73b0fc1980f3";
