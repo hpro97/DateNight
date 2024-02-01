@@ -1,12 +1,8 @@
-console.log("Log inititalised");
+console.log("Log inititalised"); // added new comment
+// new comment -----
 
-// Initial array of Types of Recipe Tags
-var recipeTypeTags = [
-  "under_30_minutes",
-  "5_ingredients_or_less",
-  "Mr. Right",
-  "The Lion King",
-];
+// Add your own API key between the ""
+var APIKey = "e248b13b3adb6046dcac73b0fc1980f3";
 
 // Here we are building the URL we need to query the database
 
@@ -16,18 +12,13 @@ $("#search-button").on(
     event.preventDefault();
     console.log(event);
 
-    var ingredient = $("#search-input").val();
-    console.log("Ingredient selected: ");
-    console.log(ingredient);
-
     // Empty the section associated with the city variables
     //clear();
 
     console.log("COntacting API: ");
 
     const url =
-      "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=&q=" +
-      ingredient;
+      "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=&q=eggs";
     const options = {
       method: "GET",
       headers: {
@@ -80,58 +71,45 @@ fetch(tagsUrl, tagsOptions)
   }); // End of Resultset function
 //
 //
+// Function for displaying recipe data
+function renderTagsButton() {
+  // Deleting the recipes prior to adding new recipes
+  // (this is necessary otherwise you will have repeat buttons)
+  $("#buttons-view-Tags").empty();
 
-//
-var selectItems = {
-  none_selected: "No type selected",
-  under_30_minutes: "Recipes under 30 mins",
-  "5_ingredients_or_less": "Recipes with 5 Ingredients or less",
-  cocktails: "Cocktail Recipes",
-  drinks: "Drinks recipes",
-  holiday_drinks: "Seasonal Drinks",
-  thai: "Thai Food",
-  mexican: "Mexican Food",
-  indian: "Indian Food",
-};
-
-//selectItems["newFriend"] = "Niel Goldman";
-
-//
-var selectContainer = document.getElementById("selectContainer");
-//var selectContainer =4('#selectContainer')
-var selectBox = document.createElement("SELECT");
-selectBox.id = selectBox.name = "recipeList";
-selectContainer.appendChild(selectBox);
-for (var key in selectItems) {
-  var value = selectItems[key];
-  var option = document.createElement("OPTION");
-  option.text = value;
-  option.value = key;
-  selectBox.options.add(option);
+  // Then dynamicaly generating button
+  // This code $("<button>") is all jQuery needs to create the beginning and end tag.
+  // (<button></button>)
+  var a = $("<button>");
+  // Adding a class of tag-btn to our button
+  a.addClass("tag-btn");
+  // Adding a data-attribute
+  a.attr("data-name", "Types of Recipe");
+  // Providing the initial button text
+  a.text("Types of Recipes");
+  // Adding the button to the buttons-view div
+  $("#buttons-view-Tags").append(a);
 }
-function getRecipeType() {
-  var typeList = document.getELementById("selectContainer");
-  var value = typeList.value;
-  console.log(value);
+//}// --- end of for loop
+renderTagsButton();
+
+function renderTagsLabel() {
+  // Deleting the recipes prior to adding new recipes
+  // (this is necessary otherwise you will have repeat buttons)
+  $("#buttons-view-Tags").empty();
+
+  // Then dynamicaly generating button
+  // This code $("<button>") is all jQuery needs to create the beginning and end tag.
+  // (<button></button>)
+  var a = $("<label>");
+  // Adding a class of tag-btn to our button
+  a.addClass("tag-btn");
+  // Adding a data-attribute
+  a.attr("data-name", "Types of Recipe");
+  // Providing the initial button text
+  a.text("Types of Recipes");
+  // Adding the button to the buttons-view div
+  $("#buttons-view-Tags").append(a);
 }
-var a = $("<button>");
-// Adding a class of movie-btn to our button
-a.addClass("search-type-btn");
-// Adding a data-attribute
-a.attr("data-name", "Recipe Type");
-// Providing the initial button text
-a.text("submit");
-// Adding the button to the buttons-view div
-$("#selectContainer").append(a);
-$(".search-type-btn").on("click", function (event) {
-  event.preventDefault();
-  console.log(event);
-  getRecipeType();
-
-  //
-  //
-  //
-}); //-- End of function
-
-// create an Array with the Types of Recipe
-// convert the JS/HTML DOM to JQUERY format
+//}// --- end of for loop
+renderTagsButton();
