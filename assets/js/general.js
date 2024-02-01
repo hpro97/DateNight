@@ -10,14 +10,15 @@ let timeEl = $("#time"); //assigns id time to timeEl
 
 // convenience variables
 
-let currentDay = dayjs(); //using day js library to set current day with funciton
 
 // functions
 
 function setDateAndTime() {
+  let currentDay = dayjs(); //using day js library to set current day with funciton
     //sets date and time
     dateEl.text("The day is: " + currentDay.format("dddd, MMMM D, YYYY") + "."); //formats date
     timeEl.text("Here's the time: " + currentDay.format("h:mm A")  + "."); //formats time
+    ; // 60 * 1000 milsec
   }
 
 // click events
@@ -27,4 +28,5 @@ function setDateAndTime() {
 // page process
 
 setDateAndTime();
-
+setInterval(setDateAndTime, 10 * 1000);
+// 
