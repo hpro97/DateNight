@@ -1,7 +1,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '0d2479b0d8mshd2a6bf887a9d146p10059fjsnb66549023be2',
+		'X-RapidAPI-Key': '20d6a28e37mshb3aada0fe204a5cp1d1a43jsnfd23db6971f8',
 		'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
 	}
 };
@@ -260,11 +260,12 @@ let test = $('#genre-input')
 
 
      function findCast(info){
-        
- let currentButton = $(this).attr('data-id')
-console.log(currentButton)
 
-         const url = `https://ott-details.p.rapidapi.com/getadditionalDetails?imdbid=${currentButton}`
+
+        
+      let parent = $(this).parent()
+
+         const url = `https://ott-details.p.rapidapi.com/gettitleDetails?imdbid=${currentButton}`
 
 console.log(url)
 
@@ -275,7 +276,27 @@ console.log(url)
               return response.json()
           })
           .then(function(data){
-              console.log(data)
+            let rating = $('<p>')
+            let released = $('<p>')
+            let runtime = $('<p>')
+            let synopsis = $('<p>')
+
+            rating.text(`Rating: ${data.imdbrating}/10 stars` )
+            released.text(`Release Year: ${data.released}`)
+            runtime.text(`Runtime: ${data.runtime}`)
+            synopsis.text(`Synopsis ${data.synopsis}`)
+
+
+
+
+
+
+          
+
+            parent.append(rating)
+            parent.append(released)
+            parent.append(runtime)
+            parent.append(synopsis)
           })
 
      }
