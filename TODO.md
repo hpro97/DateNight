@@ -37,7 +37,7 @@ to start we could make a basic webpage through html with:
 an app that calls two APIs, one for films, one for recipies. Recommends food and films based on search criteria with a user friendly UI and intuitive UX for people that are indecisive on what to cook and watch.
 
 https://rapidapi.com/apidojo/api/tasty
-https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability/
+https://rapidapi.com/gox-ai-gox-ai-default/api/ott-details
 
 All -
 
