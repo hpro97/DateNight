@@ -1,13 +1,253 @@
-.summary{
+/* Global styles for the body */
+body, html {
+    /* Bootstrap background color */
+    background-color: #f8f9fa; 
+    width: 100%;
+}
 
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 200px;
-    width: 200px;
-    color: white;
-    font-size: 20px;
-    border: 0;
-    cursor: pointer;
+/* Styling for the page title */
+#pageTitle {
+    color: black;
+}
 
+/* Styling for text container */
+.container-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Styling for input fields in column1 */
+#column1 input {
+    margin-bottom: 10px;
+    width: 350px;
+    padding-top: 50;
+}
+
+/* Styling for search buttons with class .btn-primary */
+.btn-primary {
+    background-color: blue; 
+    color: #fff; 
+    border: none; 
+    padding: 0px 30px; 
+    font-size: 16px; 
+    margin-top: -15px;
+}
+
+/* Hover effect for search buttons */
+.btn-primary:hover {
+    background-color:cornflowerblue;
+}
+
+
+/* Styling for image container */
+.image-container {
+    border: 1px solid #ddd; 
+    padding: 10px; 
+}
+
+/* Styling for custom container */
+.custom-container {
+    background-color: lightblue;
+}
+
+
+
+#headerMain {
+    background-color: lightblue;
+    border: 0.2rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+    
+    flex-wrap: wrap;
+    justify-content: space-between;   
+    align-items: stretch;
+    flex: 1;
+    /* display: flex; */
+    
+}
+
+#welcome {
+    background-color: lightblue;
+    border: 0.2rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;   
+    align-items: stretch;
+    flex: 1;
+    /* display: flex; */
+    
+
+}
+
+h3 {
+    background-color: lightblue;
+    border: 0.1rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+#welcome-text {
+    background-color: lightblue;
+    border: 0.1rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;   
+    align-items: stretch;
+    display: flex;
+    flex: 1;
+}
+
+#film {
+    /* background-color: lightblue;
+    border: 0.2rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem; */
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;    
+    align-items: stretch;
+    display: flex;
+    flex: 1;
+    height: 30rem;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+}
+
+#filmDisplay {
+    background-color: lightblue;
+    border: 0.2rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;   
+    align-items: stretch;
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    /* display: flex; */
+}
+
+#searchArea {
+    background-color: lightblue;
+    border: 0.1rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;   
+    align-items: stretch;
+    flex: 1;
+    /* display: flex; */
+}
+
+#columnSearch {
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    
+}
+
+.searchBar {
+    margin: 0.5rem;
+    width: 10rem;
+    padding: 0.2rem;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+.btn {
+    margin: 0.7rem;
+    width: 10rem;
+    padding: 0.3rem;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+#columnDisplay {
+    background-color: lightblue;
+    border: 0.1rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+#columnDescription {
+    background-color: lightblue;
+    border: 0.1rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+#info-title {
+    padding: 1rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+#info-synopsis {
+    padding: 1rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+#info-year {
+    padding: 1rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+#info-imdb {
+    padding: 1rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+#savedSearchButtons {
+    padding: 1rem;
+    margin: 0.5rem;
+    align-items: center;
+    text-align: center;
+    width: 100%; /* Ensure it occupies full width */
+}
+
+#savedSearches {
+    background-color: lightblue;
+    border: 0.1rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive styles for smaller screens */
+@media (min-width: 576px) {
+    .input-container,
+    .image-container {
+        width: 100%;
+    }
 }
