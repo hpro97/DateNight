@@ -32,53 +32,23 @@ let filmSection = $('#film');
 		filmDisplay.append(displayArea);
 			// Result buttons with movie posters
 			//------------------buttons section---------------//
-			let resultButton1 = $(`<button class="btn btn-primary" id="resultButton1">${filmName[0]}</button>`);
-			let path1 = result.poster.url[0];
-			let imageUrl1 = path1;
-			resultButton1.css('background-image', `url("${imageUrl1}")`);
-			displayArea.append(resultButton1);
-
-			// Repeat for resultButton2 to resultButton5
-			let resultButton2 = $(`<button class="btn btn-primary" id="resultButton2">${filmName[1]}</button>`);
-			let path2 = result.poster.url[1];
-			let imageUrl2 = path2;
-			resultButton2.css('background-image', `url("${imageUrl2}")`);
-			displayArea.append(resultButton2);
-
-			let resultButton3 = $(`<button class="btn btn-primary" id="resultButton3">${filmName[2]}</button>`);
-			let path3 = result.poster.url[2];
-			let imageUrl3 = path3;
-			resultButton3.css('background-image', `url("${imageUrl3}")`);
-			displayArea.append(resultButton3);
-
-			let resultButton4 = $(`<button class="btn btn-primary" id="resultButton4">${filmName[3]}</button>`);
-			let path4 = result.poster.url[3];
-			let imageUrl4 = path4;
-			resultButton4.css('background-image', `url("${imageUrl4}")`);
-			displayArea.append(resultButton4);
-
-			let resultButton5 = $(`<button class="btn btn-primary" id="resultButton5">${filmName[4]}</button>`);
-			let path5 = result.poster.url[4];
-			let imageUrl5 = path5;
-			resultButton5.css('background-image', `url("${imageUrl5}")`);
-			displayArea.append(resultButton5);
-
+			
 
 
 		//------------------description section-------------------//
 		let descriptionArea = $(`<div class="col" id="columnDescription"></div>`);
 		filmDisplay.append(descriptionArea);
 			// ----------------info dump-------------------------//
-			let titleDisplay = $(`<h3>${film.title}</h3>`);
+			let titleDisplay = $(`<h3 id=info-title></h3>`);
 			descriptionArea.append(titleDisplay);
 
-			let synopsisDisplay = $(`<p>${film.synopsis}</p>`);
+			let synopsisDisplay = $(`<p id=info-synopsis></p>`);
 			descriptionArea.append(synopsisDisplay);
 
-			let yearDisplay = $(`<p>Year: ${film.year}</p>`);
+			let yearDisplay = $(`<p id=info-year></p>`);
 			descriptionArea.append(yearDisplay);
 
-			let imdbRatingDisplay = $(`<p>IMDb Rating: ${film.imdbRating}</p>`);
+			let imdbRatingDisplay = $(`<p id=info-imdb></p>`);
 			descriptionArea.append(imdbRatingDisplay);
 
 		//------------------saved section--------------------------//
