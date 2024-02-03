@@ -1,14 +1,15 @@
 //-----------------------film section-----------------------//
 
 let filmSection = $('#film');
+filmSection.addClass('container-section');
 
 	//-----------------------film display-------------------//
 
-	let filmDisplay = $(`<div class="container text-center custom-container"></div>`);
+	let filmDisplay = $(`<div class="container text-center custom-container" id="filmDisplay"></div>`);
 	filmSection.append(filmDisplay);
 
 		//------------------search section-------------------//
-		let searchArea = $(`<div class="row"></div>`);
+		let searchArea = $(`<div class="row" id="searchArea"></div>`);
 		filmDisplay.append(searchArea);
 			//------------------search display---------------//
 			let searchDisplay = $(`<div class="col" id="columnSearch"></div>`);

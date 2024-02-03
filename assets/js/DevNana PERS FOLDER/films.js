@@ -126,3 +126,9 @@ function findInfo() {
       $("#info-imdb").text(`Rating: ${data.imdbrating}/10 stars`);
     });
 }
+
+//bugs:
+
+//undefined appears after too many clicks within set secconds (no fix, inherent of API)
+//buttons need to be larger and display full title and picture
+//search buttons need to add CSS to display nicely
