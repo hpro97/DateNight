@@ -214,3 +214,6 @@ $('#info-imdb').text(`Rating: ${data.imdbrating}/10 stars`)
       })
 
  }
+
+
+
