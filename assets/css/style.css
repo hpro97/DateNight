@@ -230,6 +230,7 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
+    width: 100%; /* Ensure it occupies full width */
 }
 
 #savedSearches {
@@ -237,13 +238,12 @@ h3 {
     border: 0.1rem solid black;
     padding: 0.5rem;
     margin: 0.5rem;
-    align-items: center;
     text-align: center;
-    flex-wrap: wrap;
-    justify-content: space-between;   
-    align-items: stretch;
-    /* display: flex; */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 /* Responsive styles for smaller screens */
 @media (min-width: 576px) {
     .input-container,

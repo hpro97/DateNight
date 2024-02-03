@@ -1,8 +1,8 @@
 const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "20d6a28e37mshb3aada0fe204a5cp1d1a43jsnfd23db6971f8",
-    "X-RapidAPI-Host": "ott-details.p.rapidapi.com",
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '12c3195dadmsh5f855125ceaedc8p1487e6jsnefb14484a6af',
+		'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
   },
 };
 
@@ -127,8 +127,12 @@ function findInfo() {
     });
 }
 
+//notes:
+
+//*reminder changed API key to Harrys, reached monthly limit*/
+//undefined appears after too many clicks within set secconds (no fix, inherent of API)
+
 //bugs:
 
-//undefined appears after too many clicks within set secconds (no fix, inherent of API)
-//buttons need to be larger and display full title and picture
-//search buttons need to add CSS to display nicely
+//buttons need to be larger to display full title and full poster
+//local storge needs adding *refer to my weather dashboard with for loop replaced older*
