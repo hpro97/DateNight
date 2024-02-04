@@ -213,7 +213,7 @@ function renderButtons() {
 renderButtons();
 
 
-//notes:
+//notes
 
 //*reminder changed API key to Harrys, reached monthly limit*/
 //undefined appears after too many clicks within set secconds (no fix, inherent of API)
