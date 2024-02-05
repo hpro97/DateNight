@@ -59,5 +59,32 @@ filmSection.addClass('container-section');
 			let savedSearches = $(`<div class="row" id="savedSearches"></div>`);
 			savedArea.append(savedSearches);
 				//---------------- Saved individuals --------------------//
+							//---------------- Saved individuals --------------------//
+							//*dynamically done in js V*//
+
+							// let savedSearch1 = $(`<button class="btn btn-primary" id="savedSearch1">${localStorage.getItem('search1')}</button>`);
+							// savedSearches.append(savedSearch1);
+							// // Use local storage to save search
 			
+							// let savedSearch2 = $(`<button class="btn btn-primary" id="savedSearch2">${localStorage.getItem('search2')}</button>`);
+							// savedSearches.append(savedSearch2);
+							// // Use local storage to save search
+			
+							// let savedSearch3 = $(`<button class="btn btn-primary" id="savedSearch3">${localStorage.getItem('search3')}</button>`);
+							// savedSearches.append(savedSearch3);
+							// // Use local storage to save search
+			
+							// let savedSearch4 = $(`<button class="btn btn-primary" id="savedSearch4">${localStorage.getItem('search4')}</button>`);
+							// savedSearches.append(savedSearch4);
+							// // Use local storage to save search
+			
+							// let savedSearch5 = $(`<button class="btn btn-primary" id="savedSearch5">${localStorage.getItem('search5')}</button>`);
+							// savedSearches.append(savedSearch5);
+							// // Use local storage to save search
+			let clearArea = $(`<div class="container mt-5 custom-container" id="clearSearch"></div>`);
+			filmDisplay.append(clearArea);
+							// //---------------- Clear search history --------------------//
+							let clearSearch = $(`<button class="btn btn-primary" id="clearSearch">Clear Search History</button>`);
+							clearArea.append(clearSearch);
+
 				// Link function to clear saved searches from local storage
