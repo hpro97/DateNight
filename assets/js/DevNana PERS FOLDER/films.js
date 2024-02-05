@@ -37,13 +37,22 @@ function search(event) {
         resultButton.attr("data-id", link[i].imdbid);
         resultButton.addClass("summary");
         resultButton.css({
-          width: 182 + "px",
-          height: 268 + "px",
+          "width": "182px",
+          "height": "268px",
           "background-size": "cover",
           "background-position": "center center",
-          padding: "10px",
-          margin: "10px",
+          "padding": "10px",
+          "margin": "10px",
           "border-radius": "10px",
+          "color": "#808080",
+          "font-family": "Arial, Helvetica, sans-serif",
+          "text-transform": "uppercase",
+          "font-weight": "bold",
+          "font-size": "16px",
+          "text-align": "center",
+          "display": "inline-block",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
         });
 
         // if image url doesn't work loads a replacement image
@@ -102,13 +111,22 @@ function movieOption(event) {
         resultButton.attr("data-id", randomLink[i].imdbid);
         resultButton.addClass("summary");
         resultButton.css({
-          width: 182 + "px",
-          height: 268 + "px",
+          "width": "182px",
+          "height": "268px",
           "background-size": "cover",
           "background-position": "center center",
-          padding: "10px",
-          margin: "10px",
+          "padding": "10px",
+          "margin": "10px",
           "border-radius": "10px",
+          "color": "#808080",
+          "font-family": "Arial, Helvetica, sans-serif",
+          "text-transform": "uppercase",
+          "font-weight": "bold",
+          "font-size": "16px",
+          "text-align": "center",
+          "display": "inline-block",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
         });
 
         // if image url doesn't work loads a replacement image
@@ -217,13 +235,22 @@ function renderButtons() {
             resultButton.attr("data-id", link[i].imdbid);
             resultButton.addClass("summary");
             resultButton.css({
-              width: 182 + "px",
-              height: 268 + "px",
+              "width": "182px",
+              "height": "268px",
               "background-size": "cover",
               "background-position": "center center",
-              padding: "10px",
-              margin: "10px",
+              "padding": "10px",
+              "margin": "10px",
               "border-radius": "10px",
+              "color": "#808080",
+              "font-family": "Arial, Helvetica, sans-serif",
+              "text-transform": "uppercase",
+              "font-weight": "bold",
+              "font-size": "16px",
+              "text-align": "center",
+              "display": "inline-block",
+              "flex-direction": "column",
+              "justify-content": "flex-end",
             });
 
             // if image url doesn't work loads a replacement image
@@ -257,5 +284,3 @@ $("#clearSearch").on("click", function () {
 // git add . && git commit -m "MESSAGE" && git push
 
 //bugs:
-
-//local storge make sure not store repeated values
