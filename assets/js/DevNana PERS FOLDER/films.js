@@ -36,6 +36,24 @@ function search(event) {
         resultButton.css("background-image", `url(${link[i].imageurl[0]})`);
         resultButton.attr("data-id", link[i].imdbid);
         resultButton.addClass("summary");
+        resultButton.css({
+          "width": "182px",
+          "height": "268px",
+          "background-size": "cover",
+          "background-position": "center center",
+          "padding": "10px",
+          "margin": "10px",
+          "border-radius": "10px",
+          "color": "#808080",
+          "font-family": "Arial, Helvetica, sans-serif",
+          "text-transform": "uppercase",
+          "font-weight": "bold",
+          "font-size": "16px",
+          "text-align": "center",
+          "display": "inline-block",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+        });
 
         // if image url doesn't work loads a replacement image
         const img = $(".image");
@@ -92,6 +110,24 @@ function movieOption(event) {
         );
         resultButton.attr("data-id", randomLink[i].imdbid);
         resultButton.addClass("summary");
+        resultButton.css({
+          "width": "182px",
+          "height": "268px",
+          "background-size": "cover",
+          "background-position": "center center",
+          "padding": "10px",
+          "margin": "10px",
+          "border-radius": "10px",
+          "color": "#808080",
+          "font-family": "Arial, Helvetica, sans-serif",
+          "text-transform": "uppercase",
+          "font-weight": "bold",
+          "font-size": "16px",
+          "text-align": "center",
+          "display": "inline-block",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+        });
 
         // if image url doesn't work loads a replacement image
         const img = $(".image");
@@ -136,17 +172,29 @@ function createButton(value) {
   const existingSearchData = localStorage.getItem("searches");
   const searches = existingSearchData ? JSON.parse(existingSearchData) : []; // checking to see if there is anything in local storage if so converts it into a javascript object if not places an empty array
 
-  if (searches.length >= 5) {
-    // checking the number of propertys in local storage if equal or greater than five
-    searches.shift(); // if greater than or equal to removes first property
+  let alreadyExists = false;
+
+  for (let i = 0; i < searches.length; i++) {
+    if (searches[i].text === buttonData.text) {
+      alreadyExists = true;
+      break;
+    }
+  } // checking to see if the button already exists
+
+  if (!alreadyExists) {
+    //makes only happens if the button doesn't already exist
+    if (searches.length >= 5) {
+      // checking the number of propertys in local storage if equal or greater than five
+      searches.shift(); // if greater than or equal to removes first property
+    }
+
+    searches.push(buttonData); // pushes the value entered to the object
+
+    const searchesJson = JSON.stringify(searches); // stringifys the key and value in the object
+    localStorage.setItem("searches", searchesJson); // saves to local storage
+
+    renderButtons(); // Call renderButtons after creating the new button
   }
-
-  searches.push(buttonData); // pushes the value entered to the object
-
-  const searchesJson = JSON.stringify(searches); // stringifys the key and value in the object
-  localStorage.setItem("searches", searchesJson); // saves to local storage
-
-  renderButtons(); // Call renderButtons after creating the new button
 }
 
 function renderButtons() {
@@ -186,6 +234,24 @@ function renderButtons() {
             resultButton.css("background-image", `url(${link[i].imageurl[0]})`);
             resultButton.attr("data-id", link[i].imdbid);
             resultButton.addClass("summary");
+            resultButton.css({
+              "width": "182px",
+              "height": "268px",
+              "background-size": "cover",
+              "background-position": "center center",
+              "padding": "10px",
+              "margin": "10px",
+              "border-radius": "10px",
+              "color": "#808080",
+              "font-family": "Arial, Helvetica, sans-serif",
+              "text-transform": "uppercase",
+              "font-weight": "bold",
+              "font-size": "16px",
+              "text-align": "center",
+              "display": "inline-block",
+              "flex-direction": "column",
+              "justify-content": "flex-end",
+            });
 
             // if image url doesn't work loads a replacement image
             const img = $(".image");
@@ -218,6 +284,3 @@ $("#clearSearch").on("click", function () {
 // git add . && git commit -m "MESSAGE" && git push
 
 //bugs:
-
-//buttons need to be larger to display full title and full poster
-//local storge needs adding *refer to my weather dashboard with for loop replaced older*

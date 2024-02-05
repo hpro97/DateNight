@@ -5,6 +5,11 @@ body, html {
     width: 100%;
 }
 
+.image {
+    background-size: cover;
+
+}
+
 /* Styling for the page title */
 #pageTitle {
     color: black;
