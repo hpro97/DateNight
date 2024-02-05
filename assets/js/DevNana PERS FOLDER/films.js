@@ -36,6 +36,15 @@ function search(event) {
         resultButton.css("background-image", `url(${link[i].imageurl[0]})`);
         resultButton.attr("data-id", link[i].imdbid);
         resultButton.addClass("summary");
+        resultButton.css({
+          'width': 182 + 'px',
+          'height': 268 + 'px',
+          'background-size': 'cover',
+          'background-position': 'center center',
+          'padding': '10px',
+          'margin': '10px',
+          'border-radius': '10px',
+        });
 
         // if image url doesn't work loads a replacement image
         const img = $(".image");
@@ -44,6 +53,8 @@ function search(event) {
             event.target.backgroundImage = `url("https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg")`;
             event.onerror = null;
           });
+          
+          
         });
 
         $("#columnDisplay").append(resultButton);
@@ -92,6 +103,15 @@ function movieOption(event) {
         );
         resultButton.attr("data-id", randomLink[i].imdbid);
         resultButton.addClass("summary");
+        resultButton.css({
+          'width': 182 + 'px',
+          'height': 268 + 'px',
+          'background-size': 'cover',
+          'background-position': 'center center',
+          'padding': '10px',
+          'margin': '10px',
+          'border-radius': '10px',
+        });
 
         // if image url doesn't work loads a replacement image
         const img = $(".image");
@@ -100,6 +120,7 @@ function movieOption(event) {
             event.target.backgroundImage = `url("https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg")`;
             event.onerror = null;
           });
+          
         });
 
         $("#columnDisplay").append(resultButton);
@@ -186,6 +207,15 @@ function renderButtons() {
             resultButton.css("background-image", `url(${link[i].imageurl[0]})`);
             resultButton.attr("data-id", link[i].imdbid);
             resultButton.addClass("summary");
+            resultButton.css({
+              'width': 182 + 'px',
+              'height': 268 + 'px',
+              'background-size': 'cover',
+              'background-position': 'center center',
+              'padding': '10px',
+              'margin': '10px',
+              'border-radius': '10px',
+            });
 
             // if image url doesn't work loads a replacement image
             const img = $(".image");
@@ -194,6 +224,7 @@ function renderButtons() {
                 event.target.backgroundImage = `url("https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg")`;
                 event.onerror = null;
               });
+              
             });
 
             $("#columnDisplay").append(resultButton);
@@ -219,5 +250,4 @@ $("#clearSearch").on("click", function () {
 
 //bugs:
 
-//buttons need to be larger to display full title and full poster
-//local storge needs adding *refer to my weather dashboard with for loop replaced older*
+//local storge make sure not store repeated values
