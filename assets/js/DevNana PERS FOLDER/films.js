@@ -1,9 +1,9 @@
 const options = {
-  method: "GET",
+  method: 'GET',
   headers: {
-    "X-RapidAPI-Key": "bbfac979c3msh248aabec4dcc4d9p178537jsn99cde4cda579",
-    "X-RapidAPI-Host": "ott-details.p.rapidapi.com",
-  },
+      'X-RapidAPI-Key': '6e3a4907b0mshd75800beb91658cp1cca30jsn471e4485a2d3',
+      'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
+  }
 };
 
 $("#searchButton1").on("click", search);
