@@ -52,6 +52,7 @@ We opted for two specific APIs after minor reconsiderations from the initial sel
 * **Deployed:** [Date Night](https://hpro97.github.io/DateNight/)
 * **GitHub Repo:** [Project 1 Date Night](https://github.com/hpro97/DateNight)
 * **Assets File:** [assets](https://github.com/hpro97/DateNight/tree/main/assets)
+* **Slides:** [slideshow](https://docs.google.com/presentation/d/e/2PACX-1vSVAdiR41x7UrWyeAROr3MmhAT_F5cg21vnzI3zR6jCaoxBDPHQR9FKXrYffSUqRZMiwy3trHFrr3nT/pub?start=false&loop=false&delayms=3000)
 
 ## Screenshot
 
