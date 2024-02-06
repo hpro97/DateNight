@@ -72,11 +72,6 @@ Amr -
 
         move towards JS and API work to implement extra functionality after initial API phase complete
 
-Danijel -
-
-    CSS #2:
-        *SEE ABOVE*
-
 Gaston -
 
     Recipie API:

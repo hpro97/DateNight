@@ -1,9 +1,9 @@
 const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '12c3195dadmsh5f855125ceaedc8p1487e6jsnefb14484a6af',
-		'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
-  },
+  method: 'GET',
+  headers: {
+      'X-RapidAPI-Key': '6e3a4907b0mshd75800beb91658cp1cca30jsn471e4485a2d3',
+      'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
+  }
 };
 
 $("#searchButton1").on("click", search);
@@ -13,6 +13,7 @@ function search(event) {
   $("#columnDisplay").empty();
   let inputVal = $("#searchBar1").val();
 
+  createButton(inputVal);
   const url = `https://ott-details.p.rapidapi.com/search?title=${inputVal}&page=1&type=movie`;
 
   fetch(url, options)
@@ -35,6 +36,24 @@ function search(event) {
         resultButton.css("background-image", `url(${link[i].imageurl[0]})`);
         resultButton.attr("data-id", link[i].imdbid);
         resultButton.addClass("summary");
+        resultButton.css({
+          "width": "182px",
+          "height": "268px",
+          "background-size": "cover",
+          "background-position": "center center",
+          "padding": "10px",
+          "margin": "10px",
+          "border-radius": "10px",
+          "color": "#808080",
+          "font-family": "Arial, Helvetica, sans-serif",
+          "text-transform": "uppercase",
+          "font-weight": "bold",
+          "font-size": "16px",
+          "text-align": "center",
+          "display": "inline-block",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+        });
 
         // if image url doesn't work loads a replacement image
         const img = $(".image");
@@ -56,7 +75,7 @@ function movieOption(event) {
   $("#columnDisplay").empty();
 
   let genre = $("#searchBar2").val();
-  console.log(genre);
+  createButton(genre);
 
   const url = `https://ott-details.p.rapidapi.com/advancedsearch?start_year=1970&end_year=2024&min_imdb=0&max_imdb=10&genre=${genre}&language=english&type=movie&sort=latest&page=1`;
 
@@ -91,6 +110,24 @@ function movieOption(event) {
         );
         resultButton.attr("data-id", randomLink[i].imdbid);
         resultButton.addClass("summary");
+        resultButton.css({
+          "width": "182px",
+          "height": "268px",
+          "background-size": "cover",
+          "background-position": "center center",
+          "padding": "10px",
+          "margin": "10px",
+          "border-radius": "10px",
+          "color": "#808080",
+          "font-family": "Arial, Helvetica, sans-serif",
+          "text-transform": "uppercase",
+          "font-weight": "bold",
+          "font-size": "16px",
+          "text-align": "center",
+          "display": "inline-block",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+        });
 
         // if image url doesn't work loads a replacement image
         const img = $(".image");
@@ -127,12 +164,123 @@ function findInfo() {
     });
 }
 
-//notes:
+function createButton(value) {
+  const buttonData = {
+    text: value,
+  };
+
+  const existingSearchData = localStorage.getItem("searches");
+  const searches = existingSearchData ? JSON.parse(existingSearchData) : []; // checking to see if there is anything in local storage if so converts it into a javascript object if not places an empty array
+
+  let alreadyExists = false;
+
+  for (let i = 0; i < searches.length; i++) {
+    if (searches[i].text === buttonData.text) {
+      alreadyExists = true;
+      break;
+    }
+  } // checking to see if the button already exists
+
+  if (!alreadyExists) {
+    //makes only happens if the button doesn't already exist
+    if (searches.length >= 5) {
+      // checking the number of propertys in local storage if equal or greater than five
+      searches.shift(); // if greater than or equal to removes first property
+    }
+
+    searches.push(buttonData); // pushes the value entered to the object
+
+    const searchesJson = JSON.stringify(searches); // stringifys the key and value in the object
+    localStorage.setItem("searches", searchesJson); // saves to local storage
+
+    renderButtons(); // Call renderButtons after creating the new button
+  }
+}
+
+function renderButtons() {
+  const existingSearchData = localStorage.getItem("searches");
+  const searches = existingSearchData ? JSON.parse(existingSearchData) : []; // checking to see if there is anything in local storage if so converts it into a javascript object if not places an empty array
+
+  $("#savedSearches").empty(); // Clear the container before rendering the buttons
+
+  searches.forEach((buttonData) => {
+    const button = $("<button>").text(buttonData.text);
+    button.addClass("test");
+    $("#savedSearches").append(button);
+
+    // Add event listener to each button
+    button.on("click", function () {
+      const inputVal = buttonData.text;
+      const apiUrl = `https://ott-details.p.rapidapi.com/search?title=${inputVal}&page=1&type=movie`;
+      $("#columnDisplay").empty();
+
+      fetch(apiUrl, options)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+
+          // filters to only shows objects with the key imageurl and has a value inside of the array
+          let link = data.results.filter(
+            (x) => x.hasOwnProperty("imageurl") && x.imageurl.length !== 0
+          );
+
+          for (let i = 0; i < 5; i++) {
+            let resultButton = $("<button>");
+
+            resultButton.addClass("image");
+            resultButton.text(link[i].title);
+            resultButton.css("background-image", `url(${link[i].imageurl[0]})`);
+            resultButton.attr("data-id", link[i].imdbid);
+            resultButton.addClass("summary");
+            resultButton.css({
+              "width": "182px",
+              "height": "268px",
+              "background-size": "cover",
+              "background-position": "center center",
+              "padding": "10px",
+              "margin": "10px",
+              "border-radius": "10px",
+              "color": "#808080",
+              "font-family": "Arial, Helvetica, sans-serif",
+              "text-transform": "uppercase",
+              "font-weight": "bold",
+              "font-size": "16px",
+              "text-align": "center",
+              "display": "inline-block",
+              "flex-direction": "column",
+              "justify-content": "flex-end",
+            });
+
+            // if image url doesn't work loads a replacement image
+            const img = $(".image");
+            img.each(function () {
+              img.on("error", function (event) {
+                event.target.backgroundImage = `url("https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg")`;
+                event.onerror = null;
+              });
+            });
+
+            $("#columnDisplay").append(resultButton);
+          }
+        });
+    });
+  });
+}
+
+renderButtons();
+
+$("#clearSearch").on("click", function () {
+  localStorage.clear("searches");
+  renderButtons();
+});
+
+//notes
 
 //*reminder changed API key to Harrys, reached monthly limit*/
 //undefined appears after too many clicks within set secconds (no fix, inherent of API)
 
-//bugs:
+// git add . && git commit -m "MESSAGE" && git push
 
-//buttons need to be larger to display full title and full poster
-//local storge needs adding *refer to my weather dashboard with for loop replaced older*
+//bugs:
