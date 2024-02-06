@@ -1,303 +1,286 @@
 const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '20d6a28e37mshb3aada0fe204a5cp1d1a43jsnfd23db6971f8',
-		'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
-	}
+  method: 'GET',
+  headers: {
+      'X-RapidAPI-Key': '6e3a4907b0mshd75800beb91658cp1cca30jsn471e4485a2d3',
+      'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
+  }
 };
 
+$("#searchButton1").on("click", search);
 
-function start(event){
-    event.preventDefault()
-    // will not by in the start function
+function search(event) {
+  event.preventDefault();
+  $("#columnDisplay").empty();
+  let inputVal = $("#searchBar1").val();
 
-   // getGenre()
+  createButton(inputVal);
+  const url = `https://ott-details.p.rapidapi.com/search?title=${inputVal}&page=1&type=movie`;
 
-   search()
-}
+  fetch(url, options)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
 
+      // filters to only shows objects with the key imageurl and has a value inside of the array
+      let link = data.results.filter(
+        (x) => x.hasOwnProperty("imageurl") && x.imageurl.length !== 0
+      );
 
+      for (let i = 0; i < 5; i++) {
+        let resultButton = $("<button>");
 
+        resultButton.addClass("image");
+        resultButton.text(link[i].title);
+        resultButton.css("background-image", `url(${link[i].imageurl[0]})`);
+        resultButton.attr("data-id", link[i].imdbid);
+        resultButton.addClass("summary");
+        resultButton.css({
+          "width": "182px",
+          "height": "268px",
+          "background-size": "cover",
+          "background-position": "center center",
+          "padding": "10px",
+          "margin": "10px",
+          "border-radius": "10px",
+          "color": "#808080",
+          "font-family": "Arial, Helvetica, sans-serif",
+          "text-transform": "uppercase",
+          "font-weight": "bold",
+          "font-size": "16px",
+          "text-align": "center",
+          "display": "inline-block",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+        });
 
-
-
-
-
-
-//function for Search
-function search(){
-    let inputVal = $('#input-val').val()
-    
-
-
-
-    const url = `https://ott-details.p.rapidapi.com/search?title=${inputVal}&page=1&type=movie`
-
-
-
-
-
-
-    fetch(url,options)
-    .then(function(response){
-     return response.json()
-      })
-   .then(function(data){
-
-console.log(data)
-    // filters to only shows objects with the key imageurl and has a value inside of the array
-    let link = data.results.filter(x=>x.hasOwnProperty('imageurl') && x.imageurl.length !== 0)
-
-     for(let i = 0; i< link.length; i++){
-
-        //creating a div card
-        let placeHolder  = $('<div>')
-        
-        //create image placeholder
-        let image = $('<img>')
-        image.attr('id','image')
-
-
-        //button to show cast
-        let summary = $('<button>')
-
-       
-
-
-
-
-
-    
         // if image url doesn't work loads a replacement image
-        const img = $("#image")
-img.each (function(){
-img.on("error", function(event) {
-  event.target.src = "https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg"
-  event.onerror = null
-})
+        const img = $(".image");
+        img.each(function () {
+          img.on("error", function (event) {
+            event.target.backgroundImage = `url("https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg")`;
+            event.onerror = null;
+          });
+        });
 
-})
-
-
-      // create title
-        let title = $('<p>')
-
-
-
-        // adds title of thee movie from the api
-        title.text(link[i].title)
-
-        //adds image link to src so image shows
-        image.attr('src',link[i].imageurl[0])
-
-        summary.addClass('summary')
-        summary.text('summary')
-        summary.attr('data-id', link[i].imdbid)
-        
-
-
-        
-
-// appending image and title into the div card
-        placeHolder.append(title)
-        placeHolder.append(image)
-        placeHolder.append(summary)
-
-        //appending into the div
-        $('#movie-info').append(placeHolder)
-        
-
-
-     }
-
-     
-      })
-
-
+        $("#columnDisplay").append(resultButton);
+      }
+    });
 }
 
+$("#searchButton2").on("click", movieOption);
+function movieOption(event) {
+  event.preventDefault();
+  $("#columnDisplay").empty();
 
+  let genre = $("#searchBar2").val();
+  createButton(genre);
 
+  const url = `https://ott-details.p.rapidapi.com/advancedsearch?start_year=1970&end_year=2024&min_imdb=0&max_imdb=10&genre=${genre}&language=english&type=movie&sort=latest&page=1`;
 
+  fetch(url, options)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      let link = data.results.filter(
+        (x) => x.hasOwnProperty("imageurl") && x.imageurl.length !== 0
+      );
+      let randomLink = [];
 
-// function for genre 
-function getGenre(){
-    
+      for (let i = 0; i < link.length; i++) {
+        let random = Math.floor(Math.random() * link.length);
+        let third = link[random];
+        if (i !== 5) {
+          randomLink.push(third);
+        } else {
+          break;
+        }
+      } // end of first loop
 
+      for (let i = 0; i < 5; i++) {
+        let resultButton = $("<button>");
 
+        resultButton.addClass("image");
+        resultButton.text(randomLink[i].title);
+        resultButton.css(
+          "background-image",
+          `url(${randomLink[i].imageurl[0]})`
+        );
+        resultButton.attr("data-id", randomLink[i].imdbid);
+        resultButton.addClass("summary");
+        resultButton.css({
+          "width": "182px",
+          "height": "268px",
+          "background-size": "cover",
+          "background-position": "center center",
+          "padding": "10px",
+          "margin": "10px",
+          "border-radius": "10px",
+          "color": "#808080",
+          "font-family": "Arial, Helvetica, sans-serif",
+          "text-transform": "uppercase",
+          "font-weight": "bold",
+          "font-size": "16px",
+          "text-align": "center",
+          "display": "inline-block",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+        });
 
-    // url to get list of genres in an array
- let url =  'https://ott-details.p.rapidapi.com/getParams?param=genre';
+        // if image url doesn't work loads a replacement image
+        const img = $(".image");
+        img.each(function () {
+          img.on("error", function (event) {
+            event.target.backgroundImage = `url("https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg")`;
+            event.onerror = null;
+          });
+        });
 
-
-
-fetch(url,options)
-    .then(function(response){
-       return response.json()
-  })
-  .then(function(data){
-      //console.log(data)
-      
-
-      // for loop to create options element for  the dropdown menu
-      for(let i = 0; i < data.length; i++){
-
-        let tag = $('<option>')
-         tag.text(data[i])
-         tag.attr("data-num",data[i])
-         $('#genre-input').append(tag)
-
-     }
-   })
+        $("#columnDisplay").append(resultButton);
+      }
+    }); // end of fetch
 }
 
+$("#columnDisplay").on("click", ".summary", findInfo);
 
+function findInfo() {
+  let currentButton = $(this).attr("data-id");
 
-// Targets the select element where the dropdown options are
-let test = $('#genre-input')
+  const url = `https://ott-details.p.rapidapi.com/gettitleDetails?imdbid=${currentButton}`;
 
-// added an eventlistener that launches when an option is change
-      test.change(function(){
-       let selectedOption = $(this).val()
+  fetch(url, options)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
 
-       // finds the dataset for the option selected
-      let selectedOptionData = $(this).find('option:selected').data('num')
+      $("#info-title").text(`${data.title}`);
+      $("#info-synopsis").text(`Synopsis: ${data.synopsis}`);
+      $("#info-year").text(`Release Year: ${data.released}`);
+      $("#info-imdb").text(`Rating: ${data.imdbrating}/10 stars`);
+    });
+}
 
+function createButton(value) {
+  const buttonData = {
+    text: value,
+  };
 
-     // pushes the result to a function
-      movieOption(selectedOptionData)
- })
+  const existingSearchData = localStorage.getItem("searches");
+  const searches = existingSearchData ? JSON.parse(existingSearchData) : []; // checking to see if there is anything in local storage if so converts it into a javascript object if not places an empty array
 
+  let alreadyExists = false;
 
+  for (let i = 0; i < searches.length; i++) {
+    if (searches[i].text === buttonData.text) {
+      alreadyExists = true;
+      break;
+    }
+  } // checking to see if the button already exists
 
-
-
- function movieOption(genre){
-
-//gets the genre parameter and puts it into the link
-     const url = `https://ott-details.p.rapidapi.com/advancedsearch?start_year=1970&end_year=2024&min_imdb=0&max_imdb=10&genre=${genre}&language=english&type=movie&sort=latest&page=1`;
-    
-    
-    
-              fetch(url,options)
-             .then(function(response){
-              return response.json()
-               })
-            .then(function(data){
-
-
-                    // filters to only shows objects with the key imageurl and has a value inside of the array
-    let link = data.results.filter(x=>x.hasOwnProperty('imageurl') && x.imageurl.length !== 0)
-
-    console.log(link)
-    for(let i = 0; i< link.length; i++){
-
-       //creating a div card
-       let placeHolder  = $('<div>')
-       
-       //create image placeholder
-       let image = $('<img>')
-       image.attr('id','image')
-
-        //button to show cast
-        let summary = $('<button>')
-
-
-       // if image url doesn't work loads a replacement image
-       const img = $("#image")
-       img.each (function(){
-      img.on("error", function(event) {
-      event.target.src = "https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg"
-      event.onerror = null
-})
-
-})
-
-
-     // create title
-       let title = $('<p>')
-
-
-
-       // adds title of thee movie from the api
-       title.text(link[i].title)
-
-       //adds image link to src so image shows
-       image.attr('src',link[i].imageurl[0])
-
-       
-       summary.addClass('summary')
-       summary.text('summary')
-       summary.attr('data-id', link[i].imdbid)
-       
-
-
-       
-
-// appending image and title into the div card
-       placeHolder.append(title)
-       placeHolder.append(image)
-       placeHolder.append(summary)
-
-       //appending into the div
-       $('#movie-info').append(placeHolder)
-
-
+  if (!alreadyExists) {
+    //makes only happens if the button doesn't already exist
+    if (searches.length >= 5) {
+      // checking the number of propertys in local storage if equal or greater than five
+      searches.shift(); // if greater than or equal to removes first property
     }
 
-    
-     
-      })
+    searches.push(buttonData); // pushes the value entered to the object
 
+    const searchesJson = JSON.stringify(searches); // stringifys the key and value in the object
+    localStorage.setItem("searches", searchesJson); // saves to local storage
 
-            
-    
-     }
+    renderButtons(); // Call renderButtons after creating the new button
+  }
+}
 
+function renderButtons() {
+  const existingSearchData = localStorage.getItem("searches");
+  const searches = existingSearchData ? JSON.parse(existingSearchData) : []; // checking to see if there is anything in local storage if so converts it into a javascript object if not places an empty array
 
-     $('#movie-info').on('click','.summary',findCast)
+  $("#savedSearches").empty(); // Clear the container before rendering the buttons
 
+  searches.forEach((buttonData) => {
+    const button = $("<button>").text(buttonData.text);
+    button.addClass("test");
+    $("#savedSearches").append(button);
 
+    // Add event listener to each button
+    button.on("click", function () {
+      const inputVal = buttonData.text;
+      const apiUrl = `https://ott-details.p.rapidapi.com/search?title=${inputVal}&page=1&type=movie`;
+      $("#columnDisplay").empty();
 
-     function findCast(info){
+      fetch(apiUrl, options)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
 
+          // filters to only shows objects with the key imageurl and has a value inside of the array
+          let link = data.results.filter(
+            (x) => x.hasOwnProperty("imageurl") && x.imageurl.length !== 0
+          );
 
-        
-      let parent = $(this).parent()
+          for (let i = 0; i < 5; i++) {
+            let resultButton = $("<button>");
 
-         const url = `https://ott-details.p.rapidapi.com/gettitleDetails?imdbid=${currentButton}`
+            resultButton.addClass("image");
+            resultButton.text(link[i].title);
+            resultButton.css("background-image", `url(${link[i].imageurl[0]})`);
+            resultButton.attr("data-id", link[i].imdbid);
+            resultButton.addClass("summary");
+            resultButton.css({
+              "width": "182px",
+              "height": "268px",
+              "background-size": "cover",
+              "background-position": "center center",
+              "padding": "10px",
+              "margin": "10px",
+              "border-radius": "10px",
+              "color": "#808080",
+              "font-family": "Arial, Helvetica, sans-serif",
+              "text-transform": "uppercase",
+              "font-weight": "bold",
+              "font-size": "16px",
+              "text-align": "center",
+              "display": "inline-block",
+              "flex-direction": "column",
+              "justify-content": "flex-end",
+            });
 
-console.log(url)
+            // if image url doesn't work loads a replacement image
+            const img = $(".image");
+            img.each(function () {
+              img.on("error", function (event) {
+                event.target.backgroundImage = `url("https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg")`;
+                event.onerror = null;
+              });
+            });
 
+            $("#columnDisplay").append(resultButton);
+          }
+        });
+    });
+  });
+}
 
+renderButtons();
 
-         fetch(url,options)
-          .then(function(response){
-              return response.json()
-          })
-          .then(function(data){
-            let rating = $('<p>')
-            let released = $('<p>')
-            let runtime = $('<p>')
-            let synopsis = $('<p>')
+$("#clearSearch").on("click", function () {
+  localStorage.clear("searches");
+  renderButtons();
+});
 
-            rating.text(`Rating: ${data.imdbrating}/10 stars` )
-            released.text(`Release Year: ${data.released}`)
-            runtime.text(`Runtime: ${data.runtime}`)
-            synopsis.text(`Synopsis ${data.synopsis}`)
+//notes
 
+//*reminder changed API key to Harrys, reached monthly limit*/
+//undefined appears after too many clicks within set secconds (no fix, inherent of API)
 
+// git add . && git commit -m "MESSAGE" && git push
 
-
-
-
-          
-
-            parent.append(rating)
-            parent.append(released)
-            parent.append(runtime)
-            parent.append(synopsis)
-          })
-
-     }
-
+//bugs:
