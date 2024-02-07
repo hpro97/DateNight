@@ -190,12 +190,15 @@ function findFoodInfo() {
       return resFood.json();
     })
     .then(function (foodData) {
+      console.log("value of foodData:L ");
       console.log(foodData);
-      var dishName = $(JSON.stringify(foodData.results.name));
+      var dishName = foodData.results[0].name;
+      console.log("value dishName");
       console.log(dishName);
       $("#dishName").text(dishName);
 
       $("#recipie").text(`recipe: ${foodData.results.description}`);
+      return dishName;
       //     // $("#info-year").text(`Release Year: ${data.released}`);
       //     // $("#info-imdb").text(`Rating: ${data.imdbrating}/10 stars`);
     });
