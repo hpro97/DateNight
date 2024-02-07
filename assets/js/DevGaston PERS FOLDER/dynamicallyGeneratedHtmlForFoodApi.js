@@ -64,8 +64,8 @@ let foodSearchButton2 = $(
 );
 foodSearchDisplay.append(foodSearchButton2);
 
-var foodName = "";
-var foodData = "";
+//var foodName = "";
+//var foodData = "";
 //------------------display section-------------------//
 let foodDisplayArea = $(`<div class="col" id="foodColumnDisplay"></div>`);
 foodDisplay.append(foodDisplayArea);
@@ -121,14 +121,14 @@ let foodDescriptionArea = $(
 );
 foodDisplay.append(foodDescriptionArea);
 // ----------------info dump-------------------------//
-let dishName = $(`<h3 id=dishName>${foodData.name}</h3>`); //change to API access logic
+let dishName = $(`<h3 id=dishName></h3>`); //change to API access logic
 foodDescriptionArea.append(dishName);
 
-let ingredients = $(`<h3 id=ingredients>${foodData.ingredients}</h3>`); //change to API access logic
-foodDescriptionArea.append(ingredients);
+// let ingredients = $(`<h3 id=ingredients>${foodData.ingredients}</h3>`); //change to API access logic
+// foodDescriptionArea.append(ingredients);
 
-let recipie = $(`<h3 id=recipie>${foodData.recipie}</h3>`); //change to API access logic
-foodDescriptionArea.append(recipie);
+// let recipie = $(`<h3 id=recipie>${foodData.recipie}</h3>`); //change to API access logic
+// foodDescriptionArea.append(recipie);
 
 //------------------saved section--------------------------//
 let foodSavedArea = $(
@@ -142,7 +142,7 @@ foodSavedArea.append(foodSavedSearches);
 
 let foodSavedSearch1 = $(
   `<button class="btn btn-primary" id="foodSavedSearch1">${localStorage.getItem(
-    "foodSearch1"
+    "foodSearches"[0]
   )}</button>`
 );
 foodSavedSearches.append(foodSavedSearch1);
@@ -151,7 +151,7 @@ foodSavedSearches.append(foodSavedSearch1);
 
 let foodSavedSearch2 = $(
   `<button class="btn btn-primary" id="foodSavedSearch2">${localStorage.getItem(
-    "foodSearch2"
+    "foodSearches"[1]
   )}</button>`
 );
 foodSavedSearches.append(foodSavedSearch2);
@@ -160,7 +160,7 @@ foodSavedSearches.append(foodSavedSearch2);
 
 let foodSavedSearch3 = $(
   `<button class="btn btn-primary" id="foodSavedSearch3">${localStorage.getItem(
-    "foodSearch3"
+    "foodSearches"[2]
   )}</button>`
 );
 foodSavedSearches.append(foodSavedSearch3);
@@ -169,7 +169,7 @@ foodSavedSearches.append(foodSavedSearch3);
 
 let foodSavedSearch4 = $(
   `<button class="btn btn-primary" id="foodSavedSearch4">${localStorage.getItem(
-    "foodSearch4"
+    "foodSearches"[3]
   )}</button>`
 );
 foodSavedSearches.append(foodSavedSearch4);
@@ -178,7 +178,7 @@ foodSavedSearches.append(foodSavedSearch4);
 
 let foodSavedSearch5 = $(
   `<button class="btn btn-primary" id="foodSavedSearch5">${localStorage.getItem(
-    "foodSearch5"
+    "foodSearches"[4]
   )}</button>`
 );
 foodSavedSearches.append(foodSavedSearch5);
