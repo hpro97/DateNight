@@ -13,9 +13,9 @@ var ingredient = $("#foodSearchButton1").val();
 console.log("Ingredient selected: ");
 console.log(ingredient);
 
-$("#foodSearchButton1").on("click", search);
+$("#foodSearchButton1").on("click", foodSearch);
 
-function search(event) {
+function foodSearch(event) {
   event.preventDefault();
   $("#foodColumnDisplay").empty();
   let inputVal = $("#foodSearchBar1").val();
@@ -23,14 +23,14 @@ function search(event) {
   console.log("value inputVal: ");
   console.log(inputVal);
 
-  createButton(inputVal);
-  const url =
+  createFoodButton(inputVal);
+  const foodUrl =
     "https://tasty.p.rapidapi.com/recipes/list?from=0&size=" +
     numRecipes +
     "&tags=&q=" +
     inputVal;
 
-  fetch(url, recipeOptions)
+  fetch(foodUrl, recipeOptions)
     .then(function (resFood) {
       return resFood.json();
     })
@@ -38,27 +38,28 @@ function search(event) {
       console.log(foodData);
       console.log(foodData.results);
       console.log(foodData.results[0]);
+      console.log(foodData.results[0].name);
 
       // filters to only shows objects with the key imageurl and has a value inside of the array
-      let link = foodData.results;
-      // let link = foodData.results.filter(
+      let foodLink = foodData.results;
+      // let foodLink = foodData.results.filter(
       //   (x) => x.hasOwnProperty("imageurl") && x.thumbnail_url.length !== 0
       // );
 
       for (let i = 0; i < 5; i++) {
         let resultButton = $("<button>");
         console.log("value of link:");
-        console.log(link);
+        console.log(foodLink);
 
         resultButton.addClass("image");
         console.log(resultButton);
-        resultButton.text(link[i].name);
+        resultButton.text(foodLink[i].name);
         resultButton.css(
           "background-image",
-          `url(${link[i].thumbnail_url[0]})`
+          `url(${foodLink[i].thumbnail_url})`
         );
-        resultButton.attr("foodData-id", link[i].name);
-        resultButton.addClass("summary");
+        resultButton.attr("foodData-id", foodLink[i].name);
+        resultButton.addClass("foodSummary");
         resultButton.css({
           //   width: "182px",
           //   height: "268px",
@@ -82,7 +83,7 @@ function search(event) {
         const img = $(".image");
         img.each(function () {
           img.on("error", function (event) {
-            event.target.backgroundImage = `url("https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg")`;
+            // event.target.backgroundImage = `url("https://t4.ftcdn.net/jpg/02/97/01/65/360_F_297016511_NWrJG1s3mpyjqD3hwdKidfYsvhEnrPm4.jpg")`;
             event.onerror = null;
           });
         });
@@ -92,35 +93,35 @@ function search(event) {
     });
 }
 
-$("#searchButton2").on("click", movieOption);
-function movieOption(event) {
+$("#foodSearchButton2").on("click", foodOption);
+function foodOption(event) {
   event.preventDefault();
   $("#foodColumnDisplay").empty();
 
-  let genre = $("#searchBar2").val();
-  createButton(genre);
+  let recipeType = $("#foodSearchBar2").val();
+  createFoodButton(recipeType);
 
-  const url =
+  const foodUrl =
     "https://tasty.p.rapidapi.com/recipes/list?from=0&size=" +
     numRecipes +
     "&tags=&q=" +
     inputVal;
 
-  fetch(url, options)
+  fetch(foodUrl, recipeOptions)
     .then(function (resFood) {
       return resFood.json();
     })
     .then(function (foodData) {
-      let link = foodData.results.filter(
+      let foodLink = foodData.results.filter(
         (x) => x.hasOwnProperty("imageurl") && x.thumbnail_url.length !== 0
       );
-      let randomLink = [];
+      let foodRandomLink = [];
 
-      for (let i = 0; i < link.length; i++) {
-        let random = Math.floor(Math.random() * link.length);
-        let third = link[random];
+      for (let i = 0; i < foodLink.length; i++) {
+        let random = Math.floor(Math.random() * foodLink.length);
+        let third = foodLink[random];
         if (i !== 5) {
-          randomLink.push(third);
+          foodRandomLink.push(third);
         } else {
           break;
         }
@@ -130,13 +131,13 @@ function movieOption(event) {
         let resultButton = $("<button>");
 
         resultButton.addClass("image");
-        resultButton.text(randomLink[i].description);
+        resultButton.text(foodRandomLink[i].description);
         resultButton.css(
           "background-image",
           `url(${randomLink[i].thumbnail_url[0]})`
         );
-        resultButton.attr("data-id", randomLink[i].name);
-        resultButton.addClass("summary");
+        resultButton.attr("foodData-id", foodRandomLink[i].name);
+        resultButton.addClass("foodSummary");
         resultButton.css({
           width: "182px",
           height: "268px",
@@ -170,43 +171,48 @@ function movieOption(event) {
     }); // end of fetch
 }
 
-$("#foodColumnDisplay").on("click", ".summary", findInfo);
+$("#foodColumnDisplay").on("click", ".foodSummary", findFoodInfo);
 
-// function findInfo() {
-//   let currentButton = $(this).attr("data-id");
+function findFoodInfo() {
+  var foodRec = $(this).attr("foodData-id");
 
-//   const url = `https://ott-details.p.rapidapi.com/gettitleDetails?imdbid=${currentButton}`;
-//   // "https://tasty.p.rapidapi.com/recipes/list?from=0&size=" +
-//   //   numRecipes +
-//   //   "&tags=&q=" +
-//   //   inputVal;
+  // let currentButton = $(this).attr("foodData-id");
 
-//   fetch(url, options)
-//     .then(function (resFood) {
-//       return resFood.json();
-//     })
-//     .then(function (foodData) {
-//       console.log(foodData);
+  // //const foodUrl = `https://ott-details.p.rapidapi.com/gettitleDetails?imdbid=${currentButton}`;
+  const foodUrl =
+    "https://tasty.p.rapidapi.com/recipes/list?from=0&size=" +
+    numRecipes +
+    "&tags=&q=" +
+    foodRec;
 
-//       $("#info-title").text(`${foodData.description}`);
-//       // $("#info-synopsis").text(`Synopsis: ${data.synopsis}`);
-//       // $("#info-year").text(`Release Year: ${data.released}`);
-//       // $("#info-imdb").text(`Rating: ${data.imdbrating}/10 stars`);
-//     });
-// }
+  fetch(foodUrl, recipeOptions)
+    .then(function (resFood) {
+      return resFood.json();
+    })
+    .then(function (foodData) {
+      console.log(foodData);
+      var dishName = $(JSON.stringify(foodData.results.name));
+      console.log(dishName);
+      $("#dishName").text(dishName);
 
-function createButton(value) {
+      $("#recipie").text(`recipe: ${foodData.results.description}`);
+      //     // $("#info-year").text(`Release Year: ${data.released}`);
+      //     // $("#info-imdb").text(`Rating: ${data.imdbrating}/10 stars`);
+    });
+}
+
+function createFoodButton(value) {
   const buttonData = {
     text: value,
   };
 
-  const existingSearchData = localStorage.getItem("searches");
-  const searches = existingSearchData ? JSON.parse(existingSearchData) : []; // checking to see if there is anything in local storage if so converts it into a javascript object if not places an empty array
+  const existingSearchData = localStorage.getItem("foodSearches");
+  const foodSearches = existingSearchData ? JSON.parse(existingSearchData) : []; // checking to see if there is anything in local storage if so converts it into a javascript object if not places an empty array
 
   let alreadyExists = false;
 
-  for (let i = 0; i < searches.length; i++) {
-    if (searches[i].text === buttonData.text) {
+  for (let i = 0; i < foodSearches.length; i++) {
+    if (foodSearches[i].text === buttonData.text) {
       alreadyExists = true;
       break;
     }
@@ -214,46 +220,52 @@ function createButton(value) {
 
   if (!alreadyExists) {
     //makes only happens if the button doesn't already exist
-    if (searches.length >= 5) {
+    if (foodSearches.length >= 5) {
       // checking the number of propertys in local storage if equal or greater than five
-      searches.shift(); // if greater than or equal to removes first property
+      foodSearches.shift(); // if greater than or equal to removes first property
     }
 
-    searches.push(buttonData); // pushes the value entered to the object
+    foodSearches.push(buttonData); // pushes the value entered to the object
 
-    const searchesJson = JSON.stringify(searches); // stringifys the key and value in the object
-    localStorage.setItem("searches", searchesJson); // saves to local storage
+    const foodSearchesJson = JSON.stringify(foodSearches); // stringifys the key and value in the object
+    localStorage.setItem("foodSearches", foodSearchesJson); // saves to local storage
 
-    renderButtons(); // Call renderButtons after creating the new button
+    foodRenderButtons(); // Call renderButtons after creating the new button
   }
 }
 
-function renderButtons() {
-  const existingSearchData = localStorage.getItem("searches");
-  const searches = existingSearchData ? JSON.parse(existingSearchData) : []; // checking to see if there is anything in local storage if so converts it into a javascript object if not places an empty array
+function foodRenderButtons() {
+  const existingSearchData = localStorage.getItem("foodSearches");
+  const foodSearches = existingSearchData ? JSON.parse(existingSearchData) : []; // checking to see if there is anything in local storage if so converts it into a javascript object if not places an empty array
 
-  $("#savedSearches").empty(); // Clear the container before rendering the buttons
+  $("#savedFoodSearches").empty(); // Clear the container before rendering the buttons
 
-  searches.forEach((buttonData) => {
+  foodSearches.forEach((buttonData) => {
     const button = $("<button>").text(buttonData.text);
     button.addClass("test");
-    $("#savedSearches").append(button);
+    $("#savedFoodSearches").append(button);
 
     // Add event listener to each button
     button.on("click", function () {
       const inputVal = buttonData.text;
-      const apiUrl = `https://ott-details.p.rapidapi.com/search?title=${inputVal}&page=1&type=movie`;
+      //const apiUrl = `https://ott-details.p.rapidapi.com/search?title=${inputVal}&page=1&type=movie`;
+      const foodApiUrl =
+        "https://tasty.p.rapidapi.com/recipes/list?from=0&size=" +
+        numRecipes +
+        "&tags=&q=" +
+        inputVal;
+
       $("#foodColumnDisplay").empty();
 
-      fetch(apiUrl, options)
+      fetch(foodApiUrl, recipeOptions)
         .then(function (resFood) {
           return resFood.json();
         })
         .then(function (foodData) {
-          console.log(data);
+          console.log(foodData);
 
           // filters to only shows objects with the key imageurl and has a value inside of the array
-          let link = foodData.results.filter(
+          let foodLink = foodData.results.filter(
             (x) => x.hasOwnProperty("imageurl") && x.thumbnail_url.length !== 0
           );
 
@@ -261,13 +273,13 @@ function renderButtons() {
             let resultButton = $("<button>");
 
             resultButton.addClass("image");
-            resultButton.text(link[i].name);
+            resultButton.text(foodLink[i].name);
             resultButton.css(
               "background-image",
-              `url(${link[i].thumbnail_url[0]})`
+              `url(${foodLink[i].thumbnail_url[0]})`
             );
-            resultButton.attr("data-id", link[i].name);
-            resultButton.addClass("summary");
+            resultButton.attr("foodData-id", foodLink[i].name);
+            resultButton.addClass("foodSummary");
             resultButton.css({
               width: "182px",
               height: "268px",
@@ -303,11 +315,11 @@ function renderButtons() {
   });
 }
 
-renderButtons();
+foodRenderButtons();
 
-$("#clearSearch").on("click", function () {
-  localStorage.clear("searches");
-  renderButtons();
+$("#foodClearSearch").on("click", function () {
+  localStorage.clear("foodSearches");
+  foodRenderButtons();
 });
 
 //notes
