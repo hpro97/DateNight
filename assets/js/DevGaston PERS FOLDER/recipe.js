@@ -66,7 +66,7 @@ $("#run-search").on(
     // Empty the section associated with the city variables
     //clear();
 
-    console.log("COntacting API: ");
+    console.log("Contacting API: ");
 
     const url =
       "https://tasty.p.rapidapi.com/recipes/list?from=0&size=" +
