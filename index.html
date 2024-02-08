@@ -2,35 +2,61 @@
 // git add . && git commit -m "MESSAGE" && git push-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /> <!-- Font Awesome CSS IF USED -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" /> <!-- GOOGLE FONTS API CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css" /> <!-- our main CSS file -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome CSS IF USED -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- GOOGLE FONTS API CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- our main CSS file -->
     <title>Date Night</title>
-</head>
-<body>
-    <header class="container-fluid text-center" id = "headerMain"> <!-- AMR AND DAN, please change bootstrap classes for this to colour scheme you decide for project -->
+  </head>
+  <body>
+    <header class="container-fluid text-center" id="headerMain">
+      <!-- AMR AND DAN, please change bootstrap classes for this to colour scheme you decide for project -->
 
-        <h1>Date Night</h1>
-        <hr>
-        <h2> Not long until Date Night </h2>
-        <h5 id="date"></h5> <!-- add day js to JS global script for this -->
-        <h6 id="time"></h6> <!-- add day js to JS global script for this -->
-        <p>Are you excited for dinner time? Not long to go now, maybe start thinking about what food you're in the mood for?</p>
-        <hr>
-
+      <h1>Date Night</h1>
+      <hr />
+      <h2>Not long until Date Night</h2>
+      <h5 id="date"></h5>
+      <!-- add day js to JS global script for this -->
+      <h6 id="time"></h6>
+      <!-- add day js to JS global script for this -->
+      <p>
+        Are you excited for dinner time? Not long to go now, maybe start
+        thinking about what food you're in the mood for?
+      </p>
+      <hr />
     </header>
 
     <section id="welcome">
-        <h3> Welcome to Date Night! </h3>
-        <p id="welcome-text"> We all know deciding on food and a film can be challenging! So why not try out below, feel free to add any specific criteria to the searches for food (such as what cuisine, dish, ingredients you have at hand) and whatever you're in the mood for cinematographically, to see if we can find something available online for you. (film title, genre).</p>
+      <h3>Welcome to Date Night!</h3>
+      <p id="welcome-text">
+        We all know deciding on food and a film can be challenging! So why not
+        try out below, feel free to add any specific criteria to the searches
+        for food (such as what cuisine, dish, ingredients you have at hand) and
+        whatever you're in the mood for cinematographically, to see if we can
+        find something available online for you. (film title, genre).
+      </p>
     </section>
 
-    <section id="food"></section> <!-- AMR AND DAN, please change bootstrap classes for this to colour scheme you decide for project, liase with NANA AND GASTON for classes and IDs inside -->
+    <section id="food"></section>
+    <!-- AMR AND DAN, please change bootstrap classes for this to colour scheme you decide for project, liase with NANA AND GASTON for classes and IDs inside -->
 
     <!-- NANA AND GASTON, please liase with AMR AND DAN for sturcture of dynamically generated HTML to be assigned here, using mock up as a guide -->
 
@@ -38,36 +64,37 @@
 
     <!-- container -->
 
-        <!-- search area -->
+    <!-- search area -->
 
-            <!-- search criteria 1 -->
-            <!-- search button -->
+    <!-- search criteria 1 -->
+    <!-- search button -->
 
-            <!-- search criteria 2 -->
-            <!-- search button -->
+    <!-- search criteria 2 -->
+    <!-- search button -->
 
-            <!-- search criteria 3 -->
-            <!-- search button -->
+    <!-- search criteria 3 -->
+    <!-- search button -->
 
-        <!-- photo area -->
+    <!-- photo area -->
 
-            <!-- food pic if available, if not maybe seperate API in future to implement functionality -->
+    <!-- food pic if available, if not maybe seperate API in future to implement functionality -->
 
-        <!-- title area -->
+    <!-- title area -->
 
-            <!-- recipie name -->
-            <!-- recipie info below -->
+    <!-- recipie name -->
+    <!-- recipie info below -->
 
-        <!-- saved area -->
+    <!-- saved area -->
 
-            <!-- saved search #1 -->
-            <!-- saved search #2 -->
-            <!-- saved search #3 -->
-            <!-- saved search #4 -->
-            <!-- saved search #5 -->
-            <!-- clear saved button -->
+    <!-- saved search #1 -->
+    <!-- saved search #2 -->
+    <!-- saved search #3 -->
+    <!-- saved search #4 -->
+    <!-- saved search #5 -->
+    <!-- clear saved button -->
 
-    <section id="film"></section> <!-- AMR AND DAN, please change bootstrap classes for this to colour scheme you decide for project, liase with NANA AND GASTON for classes and IDs inside --> 
+    <section id="film"></section>
+    <!-- AMR AND DAN, please change bootstrap classes for this to colour scheme you decide for project, liase with NANA AND GASTON for classes and IDs inside -->
 
     <!-- NANA AND GASTON, please liase with AMR AND DAN for sturcture of dynamically generated HTML to be assigned here, using mock up as a guide -->
 
@@ -75,46 +102,49 @@
 
     <!-- container -->
 
-        <!-- search area -->
+    <!-- search area -->
 
-            <!-- search criteria 1 -->
-            <!-- search button -->
+    <!-- search criteria 1 -->
+    <!-- search button -->
 
-            <!-- search criteria 2 -->
-            <!-- search button -->
+    <!-- search criteria 2 -->
+    <!-- search button -->
 
-            <!-- search criteria 3 -->
-            <!-- search button -->
+    <!-- search criteria 3 -->
+    <!-- search button -->
 
-        <!-- photo area -->
+    <!-- photo area -->
 
-            <!-- poster pic if available -->
+    <!-- poster pic if available -->
 
-        <!-- title area -->
+    <!-- title area -->
 
-            <!-- film title -->
-            <!-- film info / details -->
+    <!-- film title -->
+    <!-- film info / details -->
 
-        <!-- saved area -->
+    <!-- saved area -->
 
-            <!-- saved search #1 -->
-            <!-- saved search #2 -->
-            <!-- saved search #3 -->
-            <!-- saved search #4 -->
-            <!-- saved search #5 -->
-            <!-- clear saved button -->
+    <!-- saved search #1 -->
+    <!-- saved search #2 -->
+    <!-- saved search #3 -->
+    <!-- saved search #4 -->
+    <!-- saved search #5 -->
+    <!-- clear saved button -->
 
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script> <!-- Day JS if used -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- JQuery if used -->
-    <script src="./assets/js/general.js"></script> <!-- JS global -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <!-- Day JS if used -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- JQuery if used -->
+    <script src="./assets/js/general.js"></script>
+    <!-- JS global -->
     <!-- <script src="./assets/js/DevGaston PERS FOLDER/food.js"></script> JS API FOOD -->
     <script src="./assets/js/DevNana PERS FOLDER/dynamicallyGeneratedHtmlForFilmsApi.js"></script>
-    <script src="./assets/js/DevNana PERS FOLDER/films.js"></script> <!-- JS API FILMS -->
+    <script src="./assets/js/DevNana PERS FOLDER/films.js"></script>
+    <!-- JS API FILMS -->
 
     <!-- needs turning on when ready to implement *see bellow 2 lines* -->
 
-    <!-- <script src="./assets/js/DevGaston PERS FOLDER/dynamicallyGeneratedHtmlForFoodApi.js"></script>
-    <script src="./assets/js/DevGaston PERS FOLDER/food.js"></script> JS API FOOD -->
-    
-</body>
+    <script src="./assets/js/DevGaston PERS FOLDER/dynamicallyGeneratedHtmlForFoodApi.js"></script>
+    <script src="./assets/js/DevGaston PERS FOLDER/food.js"></script>
+  </body>
 </html>
