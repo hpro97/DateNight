@@ -70,7 +70,7 @@ $('#foodColumnDisplay').on('click','.getMore', foodInfo)
 
 
 function foodInfo(){
-
+    $('#foodColumnDescription').empty()
     let currentId = $(this).attr('data-food')
 
 
@@ -86,7 +86,7 @@ function foodInfo(){
         console.log(data)
 
         
-
+$("#video-container").empty()
 let video = $('<iframe>')
 video.attr('height', "420")
 video.attr('width', '315')
@@ -113,6 +113,7 @@ let foodIngredientTitle = $('<h2>').text('Food ingredients')
 
 //makes an ul
  let foodIngredientUnlist = $('<ul>')
+
  foodIngredientUnlist.attr('id','unordered-list')
  $('#foodColumnDescription').append(foodIngredientUnlist)
 
@@ -129,6 +130,8 @@ for(let i = 0; i< data.sections[0].components.length; i++){
 
 
 }
+
+
 
 
 let foodInstructionsTitle = $('<h2>').text('Instructions')
@@ -204,7 +207,8 @@ function foodButtonRender(){
     $('#foodSavedSearches').empty()
 
     foodSearches.forEach((foodButtonData)=>{
-    const btn = $('<button>').text(foodButtonData.foodText)
+    const btn = $('<button>').text(foodButtonData.foodText);
+    btn.addClass("test");
    $('#foodSavedSearches').append(btn)
 
    btn.on('click', function(){
