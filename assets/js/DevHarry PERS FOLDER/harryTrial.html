@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /> <!-- Font Awesome CSS IF USED -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" /> <!-- GOOGLE FONTS API CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css" /> <!-- our main CSS file -->
+    <link rel="stylesheet" href="../../css/style.css" /> <!-- our main CSS file -->
     <title>Date Night</title>
 </head>
 <body>
-    <header class="container-fluid text-center text-white bg-dark"> <!-- AMR AND DAN, please change bootstrap classes for this to colour scheme you decide for project -->
+    <header class="container-fluid text-center" id = "headerMain"> <!-- AMR AND DAN, please change bootstrap classes for this to colour scheme you decide for project -->
 
         <h1>Date Night</h1>
         <hr>
@@ -27,7 +27,7 @@
 
     <section id="welcome">
         <h3> Welcome to Date Night! </h3>
-        <p id="welcome-text"> We all know deciding on food and a film can be challenging! So why not try out below, feel free to add any specific criteria to the searches for food (such as what cuisine, dish, ingredients you have at hand) and whatever you're in the mood for cinematographically, to see if we can find something available on netflix for you. (film title, genre, actors, decade).</p>
+        <p id="welcome-text"> We all know deciding on food and a film can be challenging! So why not try out below, feel free to add any specific criteria to the searches for food (such as what cuisine, dish, ingredients you have at hand) and whatever you're in the mood for cinematographically, to see if we can find something available online for you. (film title, genre).</p>
     </section>
 
     <section id="food"></section> <!-- AMR AND DAN, please change bootstrap classes for this to colour scheme you decide for project, liase with NANA AND GASTON for classes and IDs inside -->
@@ -106,9 +106,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script> <!-- Day JS if used -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- JQuery if used -->
-    <script src="./assets/js/general.js"></script> <!-- JS global -->
-    <script src="./assets/js/DevGaston PERS FOLDER/food.js"></script> <!-- JS API FOOD -->
-    <script src="../DevNana PERS FOLDER/dynamicallyGeneratedHtmlForFilmsApi.js"></script> <!-- JS API FILMS -->
-    <script src="../DevNana PERS FOLDER/films.js"></script>
+    <script src="../general.js"></script> <!-- JS global -->
+    <!-- <script src="./assets/js/DevGaston PERS FOLDER/food.js"></script> JS API FOOD -->
+    <script src="../DevNana PERS FOLDER/dynamicallyGeneratedHtmlForFilmsApi.js"></script>
+    <script src="../DevNana PERS FOLDER/films.js"></script> <!-- JS API FILMS -->
+
+    <!-- needs turning on when ready to implement *see bellow 2 lines* -->
+
+    <!-- <script src="../DevHarry PERS FOLDER/dynamicallyGeneratedHtmlForFoodApi(rollback).js"></script>
+    <script src="../DevHarry PERS FOLDER/food(rollback).js"></script> JS API FOOD -->
+    
 </body>
 </html>
