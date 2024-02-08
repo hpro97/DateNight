@@ -463,6 +463,14 @@ h3 {
     width: 100%; /* Ensure it occupies full width */
 }
 
+.test{
+    padding: 0.4rem;
+    background-color: #666666;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;}
+
 /* Responsive styles for smaller screens */
 @media (min-width: 576px) {
     .input-container,
