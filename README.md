@@ -56,8 +56,12 @@ We opted for two specific APIs after minor reconsiderations from the initial sel
 
 ## Screenshot
 
-![Screenshot of Deployed Page](./) <!--- fill in later --->
-![Screenshot of Deployed Page](./) <!--- fill in later --->
+![Screenshot of Deployed Page](./assets/images/screenshot1.png) 
+![Screenshot of Deployed Page](./assets/images/screenshot2.png) 
+![Screenshot of Deployed Page](./assets/images/screenshot3.png) 
+![Screenshot of Deployed Page](./assets/images/screenshot4.png) 
+![Screenshot of Deployed Page](./assets/images/screenshot5.png)
+
 
 ## Credits
 
