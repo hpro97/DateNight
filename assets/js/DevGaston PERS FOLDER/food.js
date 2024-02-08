@@ -61,22 +61,22 @@ function foodSearch(event) {
         resultButton.attr("foodData-id", foodLink[i].name);
         resultButton.addClass("foodSummary");
         resultButton.css({
-          //   width: "182px",
-          //   height: "268px",
-          //   "background-size": "cover",
-          //   "background-position": "center center",
-          //   padding: "10px",
-          //   margin: "10px",
-          //   "border-radius": "10px",
-          //   color: "#808080",
-          //   "font-family": "Arial, Helvetica, sans-serif",
-          //   "text-transform": "uppercase",
-          //   "font-weight": "bold",
-          //   "font-size": "16px",
-          //   "text-align": "center",
-          //   display: "inline-block",
-          //   "flex-direction": "column",
-          //   "justify-content": "flex-end",
+          width: "182px",
+          height: "268px",
+          "background-size": "cover",
+          "background-position": "center center",
+          padding: "10px",
+          margin: "10px",
+          "border-radius": "10px",
+          color: "#808080",
+          "font-family": "Arial, Helvetica, sans-serif",
+          "text-transform": "uppercase",
+          "font-weight": "bold",
+          "font-size": "16px",
+          "text-align": "center",
+          display: "inline-block",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
         });
 
         // if image url doesn't work loads a replacement image
@@ -190,17 +190,36 @@ function findFoodInfo() {
       return resFood.json();
     })
     .then(function (foodData) {
-      console.log("value of foodData:L ");
-      console.log(foodData);
+      // console.log("value of foodData:L ");
+      // console.log(foodData);
       var dishName = foodData.results[0].name;
-      console.log("value dishName");
-      console.log(dishName);
-      $("#dishName").text(dishName);
+      // console.log("value dishName");
+      // console.log(dishName);
+      $("#dishName").text("Dish Name: " + dishName);
 
-      $("#recipie").text(`recipe: ${foodData.results.description}`);
-      return dishName;
-      //     // $("#info-year").text(`Release Year: ${data.released}`);
-      //     // $("#info-imdb").text(`Rating: ${data.imdbrating}/10 stars`);
+      //$("#recipie").text(`recipe: ${foodData.results.description}`);
+      var dishDescription = foodData.results[0].description;
+      $("#dishDescription").text("Dish Description: " + dishDescription);
+      console.log("Length of Array Instrcutions:");
+      var dishRecipe = [foodData.results[0].instructions];
+      console.log(dishRecipe);
+      console.log(dishRecipe[0].length);
+      let foodRecipe = [];
+
+      for (let i = 0; i < dishRecipe[0].length; i++) {
+        foodRecipe.push(
+          "Step " + (i + 1) + ": " + dishRecipe[0][i].display_text + "\r\n"
+        );
+      }
+
+      $("#dishRecipe").text(" " + foodRecipe + "\r\n");
+      // $("#dishRecipe").text(" : " + dishRecipe[0][1].display_text);
+      //
+      let videoSource = foodData.results[0].original_video_url;
+      console.log(videoSource);
+      $("#video-container").text(videoSource);
+
+      return dishName, dishDescription, dishRecipe, foodRecipe;
     });
 }
 
@@ -251,7 +270,7 @@ function foodRenderButtons() {
     // Add event listener to each button
     button.on("click", function () {
       const inputVal = buttonData.text;
-      //const apiUrl = `https://ott-details.p.rapidapi.com/search?title=${inputVal}&page=1&type=movie`;
+
       const foodApiUrl =
         "https://tasty.p.rapidapi.com/recipes/list?from=0&size=" +
         numRecipes +
