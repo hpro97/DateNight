@@ -103,17 +103,17 @@ foodDisplay.append(foodDisplayArea);
 // foodDisplayArea.append(foodResultButton5);
 
 //------------------video/picture section-------------------//
-// let videoArea = $(`<div class="col" id="foodColumnVideoArea"></div>`);
-// foodDisplay.append(videoArea);
+let videoArea = $(`<div class="col" id="foodColumnVideoArea"></div>`);
+foodDisplay.append(videoArea);
 // //------------------video/picture reuslt section--- ----//
-// let videoSource = foodData.results.original_video_url; // [on click event take id and apply to this logic] //change to API access logic
-// let videoResultArea = $(`
-// 		<div id="video-container">
-// 			<video id="foodVideo">
-// 			    <source src= videoSource type="video/mp4">
-// 			</video>
-// 		</div>`);
-// videoArea.append(videoResultArea);
+//let videoSource = foodData.results.original_video_url; // [on click event take id and apply to this logic] //change to API access logic
+let videoResultArea = $(`
+		<div id="video-container">
+			<video id="foodVideo">
+			    <source src= videoSource type="video/mp4">
+			</video>
+		</div>`);
+videoArea.append(videoResultArea);
 
 //------------------description section-------------------//
 let foodDescriptionArea = $(
@@ -121,14 +121,16 @@ let foodDescriptionArea = $(
 );
 foodDisplay.append(foodDescriptionArea);
 // ----------------info dump-------------------------//
-let dishName = $(`<h3 id=dishName></h3>`); //change to API access logic
+let dishName = $(`<h4 id=dishName></h4>`);
 foodDescriptionArea.append(dishName);
 
 // let ingredients = $(`<h3 id=ingredients>${foodData.ingredients}</h3>`); //change to API access logic
 // foodDescriptionArea.append(ingredients);
+let dishDescription = $(`<h4 id=dishDescription></h4>`);
+foodDescriptionArea.append(dishDescription);
 
-// let recipie = $(`<h3 id=recipie>${foodData.recipie}</h3>`); //change to API access logic
-// foodDescriptionArea.append(recipie);
+let dishRecipe = $(`<h5 id=dishRecipe></h5>`); //change to API access logic
+foodDescriptionArea.append(dishRecipe);
 
 //------------------saved section--------------------------//
 let foodSavedArea = $(
