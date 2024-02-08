@@ -13,9 +13,9 @@ var ingredient = $("#foodSearchButton1").val();
 console.log("Ingredient selected: ");
 console.log(ingredient);
 
-$("#foodSearchButton1").on("click", search);
+$("#foodSearchButton1").on("click", foodsearch);
 
-function search(event) {
+function foodsearch(event) {
   event.preventDefault();
   $("#foodColumnDisplay").empty();
   let inputVal = $("#foodSearchBar1").val();
@@ -55,10 +55,10 @@ function search(event) {
         resultButton.text(link[i].name);
         resultButton.css(
           "background-image",
-          `url(${link[i].thumbnail_url[0]})`
+          `url(${link[i].thumbnail_url})` // change
         );
         resultButton.attr("foodData-id", link[i].name);
-        resultButton.addClass("summary");
+        resultButton.addClass("summary"); // already changed
         resultButton.css({
           //   width: "182px",
           //   height: "268px",
@@ -92,8 +92,8 @@ function search(event) {
     });
 }
 
-$("#searchButton2").on("click", movieOption);
-function movieOption(event) {
+$("#searchButton2").on("click", movieOption); // has changed
+function movieOption(event) { 
   event.preventDefault();
   $("#foodColumnDisplay").empty();
 
@@ -113,7 +113,7 @@ function movieOption(event) {
     .then(function (foodData) {
       let link = foodData.results.filter(
         (x) => x.hasOwnProperty("imageurl") && x.thumbnail_url.length !== 0
-      );
+      );  // let see
       let randomLink = [];
 
       for (let i = 0; i < link.length; i++) {
