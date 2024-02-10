@@ -3,6 +3,7 @@ body, html {
     /* Bootstrap background color */
     background-color: #f8f9fa; 
     width: 100%;
+
 }
 
 .image {
@@ -52,18 +53,18 @@ body, html {
 
 /* Styling for custom container */
 .custom-container {
-    background-color: lightblue;
 }
 
 
 
 #headerMain {
-    background-color: lightblue;
+    background: linear-gradient(#ADD8E6, #f8f9fa);
     border: 0.2rem solid black;
     padding: 0.5rem;
     margin: 0.5rem;
     align-items: center;
     text-align: center;
+    font-family:monospace;
     
     flex-wrap: wrap;
     justify-content: space-between;   
@@ -74,7 +75,7 @@ body, html {
 }
 
 #welcome {
-    background-color: lightblue;
+    background: linear-gradient(#ADD8E6, #f8f9fa);
     border: 0.2rem solid black;
     padding: 0.5rem;
     margin: 0.5rem;
@@ -84,21 +85,22 @@ body, html {
     justify-content: space-between;   
     align-items: stretch;
     flex: 1;
+    font-family: monospace;
     /* display: flex; */
     
 
 }
 
 h3 {
-    background-color: lightblue;
-    border: 0.2rem solid black;
+    
+    /* border: 0.2rem solid black; */
     padding: 2rem;
     margin: 0.5rem;
 }
 
 #welcome-text {
-    background-color: lightblue;
-    border: 0.2rem solid black;
+    
+    /* border: 0.2rem solid black; */
     padding: 2rem;
     margin: 0.5rem;
     align-items: center;
@@ -126,10 +128,11 @@ h3 {
     position: relative;
     width: 100%;
     max-width: 100%;
+    font-family:monospace;
 }
 
 #filmDisplay {
-    background-color: lightblue;
+    background: linear-gradient(#ADD8E6, #f8f9fa);
     border: 0.2rem solid black;
     padding: 0.5rem;
     margin: 0.5rem;
@@ -145,8 +148,8 @@ h3 {
 }
 
 #searchArea {
-    background-color: lightblue;
-    border: 0.2rem solid black;
+    
+    /* border: 0.2rem solid black; */
     padding: 1rem;
     margin: 0.5rem;
     align-items: center;
@@ -184,8 +187,7 @@ h3 {
 }
 
 #columnDisplay {
-    background-color: lightblue;
-    border: 0.2rem solid black;
+    /* border: 0.2rem solid black; */
     padding: 1rem;
     margin: 0.5rem;
     align-items: center;
@@ -194,8 +196,7 @@ h3 {
 }
 
 #columnDescription {
-    background-color: lightblue;
-    border: 0.2rem solid black;
+    /* border: 0.2rem solid black; */
     padding: 0.5rem;
     margin: 0.5rem;
     align-items: center;
@@ -230,7 +231,7 @@ h3 {
     text-align: center;
 }
 
-#savedSearchButtons {
+#savedSearchButton {
     padding: 1rem;
     margin: 0.5rem;
     align-items: center;
@@ -239,8 +240,7 @@ h3 {
 }
 
 #savedSearches {
-    background-color: lightblue;
-    border: 0.2rem solid black;
+    /* border: 0.2rem solid black; */
     padding: 0.5rem;
     margin: 0.5rem;
     text-align: center;
@@ -252,10 +252,6 @@ h3 {
 /* food */
 
 #food {
-        /* background-color: lightblue;
-    border: 0.2rem solid black;
-    padding: 0.5rem;
-    margin: 0.5rem; */
     align-items: center;
     text-align: center;
     flex-wrap: wrap;
@@ -263,16 +259,16 @@ h3 {
     align-items: stretch;
     display: flex;
     flex: 1;
-    height: 30rem;
     position: relative;
     width: 100%;
     max-width: 100%;
+    font-family:monospace;
 }
 
 #foodDisplay {
-    background-color: lightblue;
+    background: linear-gradient(#ADD8E6, #f8f9fa);
     border: 0.2rem solid black;
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 0.5rem;
     align-items: center;
     text-align: center;
@@ -282,13 +278,12 @@ h3 {
     flex: 1;
     width: 100%;
     max-width: 100%;
-    /* display: flex; */
+
 }
 
 #foodSearchArea {
-    background-color: lightblue;
-    border: 0.1rem solid black;
-    padding: 0.5rem;
+    /* border: 0.2rem solid black; */
+    padding: 1rem;
     margin: 0.5rem;
     align-items: center;
     text-align: center;
@@ -296,7 +291,7 @@ h3 {
     justify-content: space-between;   
     align-items: stretch;
     flex: 1;
-    /* display: flex; */
+
 }
 
 #foodColumnSearch {
@@ -306,9 +301,8 @@ h3 {
 }
 
 #foodColumnDisplay {
-    background-color: lightblue;
-    border: 0.1rem solid black;
-    padding: 0.5rem;
+    /* border: 0.2rem solid black; */
+    padding: 1rem;
     margin: 0.5rem;
     align-items: center;
     text-align: center;
@@ -320,7 +314,7 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%;
 }
 
 #foodResultButton2 {
@@ -328,7 +322,7 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%;
 }
 
 #foodResultButton3 {
@@ -336,7 +330,7 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%; 
 }
 
 #foodResultButton4 {
@@ -344,7 +338,7 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%; 
 }
 
 #foodResultButton5 {
@@ -352,32 +346,26 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%;
 }
 
 #foodColumnVideoArea {
-    background-color: lightblue;
-    border: 0.1rem solid black;
-    padding: 0.5rem;
-    margin: 0.5rem;
+    /* border: 0.2rem solid black; */
     align-items: center;
     text-align: center;
     flex: 1;
 }
 
 #video-container {
-    background-color: lightblue;
-    border: 0.1rem solid black;
-    padding: 0.5rem;
-    margin: 0.5rem;
+    /* border: 0.2rem solid black; */
+
     align-items: center;
     text-align: center;
 }
 
 #foodColumnDescription {
-    background-color: lightblue;
-    border: 0.1rem solid black;
-    padding: 0.5rem;
+    /* border: 0.2rem solid black; */
+    padding: 1rem;
     margin: 0.5rem;
     align-items: center;
     text-align: center;
@@ -409,12 +397,11 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%; 
 }
 
 #foodSavedSearches {
-    background-color: lightblue;
-    border: 0.1rem solid black;
+    /* border: 0.2rem solid black; */
     padding: 0.5rem;
     margin: 0.5rem;
     text-align: center;
@@ -428,7 +415,7 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%; 
 }
 
 #foodSavedSearch2 {
@@ -436,7 +423,7 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%;
 }
 
 #foodSavedSearch3 {
@@ -444,7 +431,7 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%;
 }
 
 #foodSavedSearch4 {
@@ -452,7 +439,7 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%; 
 }
 
 #foodSavedSearch5 {
@@ -460,7 +447,7 @@ h3 {
     margin: 0.5rem;
     align-items: center;
     text-align: center;
-    width: 100%; /* Ensure it occupies full width */
+    width: 100%; 
 }
 
 .test{
